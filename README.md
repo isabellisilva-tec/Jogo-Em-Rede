@@ -6,9 +6,9 @@ Este projeto consiste no desenvolvimento de um jogo em rede para dois jogadores,
 
 🛠️ **Ferramentas utilizadas**
 
-Godot Engine: criação e desenvolvimento do jogo.
+**Godot Engine**: criação e desenvolvimento do jogo.
 
-GDScript: linguagem utilizada na programação das mecânicas.
+**GDScript**: linguagem utilizada na programação das mecânicas.
 
 👥 **Integrantes**
 
