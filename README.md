@@ -23,5 +23,5 @@ Instale a Godot Engine.
 Abra o projeto na Godot.
 
 Execute a cena principal para iniciar o jogo.
-
-Projeto acadêmico desenvolvido em dupla para a disciplina de Fundamentos de Desenvolvimento de Jogos.
+__________________________________________________________________________________________________________
+*Projeto acadêmico desenvolvido em dupla para a disciplina de Fundamentos de Desenvolvimento de Jogos.*
