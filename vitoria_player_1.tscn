@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cjkrpa2h8a27g"]
+
+[ext_resource type="Script" uid="uid://bnefh8ll4gekm" path="res://vitoria_player_1.gd" id="1_dcfr3"]
+
+[node name="VitoriaPlayer1" type="Control" unique_id=2005321185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dcfr3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1401097291]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.29411766, 0.3882353, 0.40392157, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1823143296]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 248.0
+offset_right = 891.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 50
+text = "🏆 PLAYER 1 VENCEU! 🏆"
+
+[node name="Button" type="Button" parent="Label" unique_id=731904599]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 350.0
+offset_right = 669.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 24
+text = "JOGAR NOVAMENTE"
+
+[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]

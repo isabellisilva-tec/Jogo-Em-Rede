@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://b2ex2sxo511e2"]
+
+[ext_resource type="Script" uid="uid://7p0ue7b2kty4" path="res://player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dkq7m5g7ps6g" path="res://assets/Sprite Pack 8/Sprite Pack 8/2 - Tracy/Jump (32 x 32).png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://drn7asv4lvgyh" path="res://assets/Sprite Pack 8/Sprite Pack 8/2 - Tracy/Run (32 x 32).png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://dow0lc1c4ectq" path="res://assets/Sprite Pack 8/Sprite Pack 8/2 - Tracy/Idle_1 (32 x 32).png" id="4_1jxqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwqh0"]
+atlas = ExtResource("2_sweqy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny45v"]
+atlas = ExtResource("3_2hs0m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tggv0"]
+atlas = ExtResource("3_2hs0m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6rn"]
+atlas = ExtResource("3_2hs0m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hffw0"]
+atlas = ExtResource("3_2hs0m")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68bho"]
+atlas = ExtResource("3_2hs0m")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge8mc"]
+atlas = ExtResource("3_2hs0m")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t630"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h75nb"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2fxn"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp7xs"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqmjn"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgxoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwqh0")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny45v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tggv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hffw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68bho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge8mc")
+}],
+"loop": 1,
+"name": &"correr",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t630")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h75nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2fxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp7xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqmjn")
+}],
+"loop": 1,
+"name": &"parada",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgxoe"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hqtel"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("AnimatedSprite2D:animation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="player" type="CharacterBody2D" unique_id=1150831612]
+collision_layer = 2
+script = ExtResource("1_hqtel")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828609221]
+sprite_frames = SubResource("SpriteFrames_fgxoe")
+animation = &"correr"
+autoplay = "correr"
+frame_progress = 0.6814925
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216391841]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_fgxoe")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1594636775]
+replication_config = SubResource("SceneReplicationConfig_hqtel")
